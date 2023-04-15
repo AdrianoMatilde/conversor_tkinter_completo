@@ -2,6 +2,12 @@ import tkinter as tk
 
 def converter_temperatura():
     temperatura = float(entrada_temperatura.get())
+    entrada_unidade = entrada.get()
+    saida_unidade = saida.get()
+
+    if entrada_unidade == saida_unidade:
+        resultado['text'] = 'Por favor, escolha unidades de temperatura diferentes.'
+        return
 
     if opcao.get() == 1: # Celsius para Fahrenheit
         temperatura_convertida = (temperatura * 1.8) + 32
@@ -10,7 +16,7 @@ def converter_temperatura():
     else: # Celsius para Kelvin
         temperatura_convertida = temperatura + 273.15
 
-    resultado['text'] = f'{temperatura:.2f} {unidades[entrada.get()]} equivalem a {temperatura_convertida:.2f} {unidades[saida.get()]}'
+    resultado['text'] = f'{temperatura:.2f} {unidades[entrada_unidade]} equivalem a {temperatura_convertida:.2f} {unidades[saida_unidade]}'
 
 # Cria a interface gráfica do usuário
 janela = tk.Tk()
@@ -23,6 +29,7 @@ entrada_temperatura.grid(row=0, column=1)
 
 tk.Label(janela, text='De:').grid(row=1, column=0, padx=10, pady=10)
 entrada = tk.StringVar(value='Celsius')
+
 menu_entrada = tk.OptionMenu(janela, entrada, 'Celsius', 'Fahrenheit', 'Kelvin')
 menu_entrada.grid(row=1, column=1)
 
