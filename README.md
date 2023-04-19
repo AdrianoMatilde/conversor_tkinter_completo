@@ -19,4 +19,7 @@ As unidades de temperatura são armazenadas em um dicionário para facilitar o a
 A janela é executada com o método mainloop().
 
 ---
+
 Espero que tenha gostado!
+
+Se tiver mais alguma ideia não deixe de contribuir.
